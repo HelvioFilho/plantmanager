@@ -10,6 +10,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 12,
+    marginRight: 5,
   },
   containerActive:{
     backgroundColor: colors.green_light,

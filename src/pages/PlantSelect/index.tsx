@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  FlatList,
   SafeAreaView,
   Text,
   View,
@@ -24,7 +25,18 @@ export function PlantSelect() {
           </Text>
         </View>
       </View>
-        <EnvironmentButton title="Cozinha" active />
+      <View>
+        <FlatList
+         
+          data={[1, 2, 3, 4, 5, 6, 7]}
+          renderItem={() => (
+            <EnvironmentButton title="Cozinha" active />
+          )}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.environmentList}
+        />
+      </View>
     </SafeAreaView>
   );
 }

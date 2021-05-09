@@ -22,5 +22,13 @@ export const styles = StyleSheet.create({
   },
   header: {
     paddingHorizontal: 30,
+  },
+  environmentList:{
+    height: 40,
+    justifyContent: 'center',
+    paddingBottom: 5,
+    marginLeft: 32,
+    marginVertical: 32,
+    paddingRight: 50,
   }
 });
