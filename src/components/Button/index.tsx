@@ -1,5 +1,11 @@
 import React from 'react';
-import { Text, TouchableOpacity, TouchableOpacityProps } from 'react-native';
+import {
+  Text,
+  TouchableOpacity,
+  TouchableOpacityProps
+} from 'react-native';
+import { Feather } from '@expo/vector-icons';
+
 import { styles } from './style';
 
 interface ButtonProps extends TouchableOpacityProps {
@@ -9,12 +15,13 @@ interface ButtonProps extends TouchableOpacityProps {
 export function Button({ title, ...rest }: ButtonProps) {
   return (
     <TouchableOpacity
-      style={styles.button}
+      style={[styles.button ,(title === ">") ? styles.buttonChevron : styles.buttonTotal]}
       activeOpacity={0.7}
       {...rest}
     >
       <Text style={styles.buttonText}>
-        {title}
+      {/* <Text style={[styles.buttonText ,(title === ">") ? styles.buttonChevron : styles.buttonTotal]}> */}
+        {(title === ">") ? <Feather name="chevron-right" style={styles.buttonIcon} /> : title}
       </Text>
     </TouchableOpacity>
   );

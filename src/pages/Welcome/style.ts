@@ -1,11 +1,11 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 import colors from '../../styles/colors';
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
   },
   title:{
     fontSize: 32,
@@ -29,8 +29,7 @@ export const styles = StyleSheet.create({
       width: 56,
   },
   image:{
-    width: 292,
-    height: 284,
+    height: Dimensions.get('window').width * 0.7,
   }
 
 });
