@@ -1,6 +1,6 @@
 import React from 'react';
-import { Confirmation } from './src/pages/Confirmation';
 import AppLoading from 'expo-app-loading';
+import Routes from './src/routes';
 import {
   useFonts,
   Jost_400Regular,
@@ -16,6 +16,6 @@ export default function App() {
   if (!fontsLoaded)
     return <AppLoading />
   return (
-    <Confirmation />
+    <Routes />
   );
 }
