@@ -20,8 +20,7 @@ export function Button({ title, ...rest }: ButtonProps) {
       {...rest}
     >
       <Text style={styles.buttonText}>
-      {/* <Text style={[styles.buttonText ,(title === ">") ? styles.buttonChevron : styles.buttonTotal]}> */}
-        {(title === ">") ? <Feather name="chevron-right" style={styles.buttonIcon} /> : title}
+       {(title === ">") ? <Feather name="chevron-right" style={styles.buttonIcon} /> : title}
       </Text>
     </TouchableOpacity>
   );

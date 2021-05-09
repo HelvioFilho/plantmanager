@@ -1,21 +1,29 @@
 import { StyleSheet, Dimensions } from 'react-native';
 import colors from '../../styles/colors';
+import fonts from '../../styles/fonts';
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  wrapper: {
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'space-around',
+    paddingHorizontal: 20,
   },
   title:{
-    fontSize: 32,
+    fontFamily: fonts.heading,
+    fontSize: 28,
+    lineHeight: 34,
     textAlign: 'center',
     color: colors.heading,
     marginTop: 38,
   },
   subtitle:{
-    textAlign: 'center',
+    fontFamily: fonts.text,
     fontSize: 18,
+    textAlign: 'center',
     paddingHorizontal: 20,
     color: colors.heading,
   },
