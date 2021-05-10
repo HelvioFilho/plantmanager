@@ -9,10 +9,14 @@ import {
   Platform,
   TouchableWithoutFeedback,
   Keyboard,
+  Alert,
 } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import { Button } from '../../components/Button';
 import colors from '../../styles/colors';
 import { styles } from './style';
+import asyncStorage from '@react-native-async-storage/async-storage';
 
 export function UserIdentification() {
   const [isFocused, setIsFocused] = useState(false);
@@ -34,7 +38,11 @@ export function UserIdentification() {
     setName(value);
   }
 
-  function handleSubmit() {
+  async function handleSubmit() {
+    if (!name)
+      return Alert.alert('Me diz como chamar você 😥');
+
+    await asyncStorage.setItem('@plantmanager:user', name);
     navigation.navigate('Confirmation');
   }
 
