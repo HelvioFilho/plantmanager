@@ -15,6 +15,7 @@ import api from '../../services/api';
 
 import { styles } from './style';
 import colors from '../../styles/colors';
+import { useNavigation } from '@react-navigation/native';
 
 interface EnvironmentProps {
   key: string,
@@ -42,6 +43,7 @@ export function PlantSelect() {
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [loadingMore, setLoadingMore] = useState(false);
+  const navigation = useNavigation();
 
   function handleEnvironmentSelected(environment: string) {
     setEnvironmentSelected(environment);
@@ -80,6 +82,10 @@ export function PlantSelect() {
     setLoadingMore(true);
     setPage(oldValue => oldValue + 1);
     fetchPlants();
+  }
+
+  function handlePlantSelect(plants: PlantsProps){
+    navigation.navigate('PlantSave');
   }
 
   useEffect(() => {
@@ -121,6 +127,7 @@ export function PlantSelect() {
         <FlatList
 
           data={environments}
+          keyExtractor={(item) => String(item.key)}
           renderItem={({ item }) => (
             <EnvironmentButton
               title={item.title}
@@ -137,8 +144,13 @@ export function PlantSelect() {
         <FlatList
 
           data={filteredPlants}
+          keyExtractor={(item) => String(item.id)}
           renderItem={({ item }) => (
-            <PlantCardPrimary data={item} />
+            <PlantCardPrimary
+              data={item}
+              onPress={() => handlePlantSelect(item)}
+            />
+
           )}
           showsVerticalScrollIndicator={false}
           numColumns={2}
@@ -148,8 +160,8 @@ export function PlantSelect() {
           }
           ListFooterComponent={
             loadingMore
-            ?<ActivityIndicator color={colors.green} />
-            : <></>
+              ? <ActivityIndicator color={colors.green} />
+              : <></>
           }
         />
       </View>
