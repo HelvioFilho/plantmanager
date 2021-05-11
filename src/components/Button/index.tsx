@@ -19,7 +19,7 @@ export function Button({ title, color, modal, ...rest }: ButtonProps) {
     <TouchableOpacity
       style={
         [styles.button ,
-          (title === ">") && styles.buttonChevron,
+          (title == ">") && styles.buttonChevron,
           (modal)? styles.buttonModal : styles.buttonTotal,
           (color) ? styles.cancel : styles.main,
         ]}
@@ -27,7 +27,7 @@ export function Button({ title, color, modal, ...rest }: ButtonProps) {
       {...rest}
     >
       <Text style={(modal)? styles.textModal : styles.buttonText}>
-       {(title === ">") ? <Feather name="chevron-right" style={styles.buttonIcon} /> : title}
+       {(title == ">") ? <Feather name="chevron-right" style={styles.buttonIcon} /> : title}
       </Text>
     </TouchableOpacity>
   );

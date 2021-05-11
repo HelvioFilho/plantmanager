@@ -18,14 +18,12 @@ export const styles = StyleSheet.create({
     borderRadius: 12,
   },
   buttonChevron:{
-    width: 56,
-    height: 56, 
     borderRadius: 16,
     marginBottom: 10,
   },
   buttonText:{
     color: colors.white,
-    fontSize: 20,
+    fontSize: 24,
   },
   textModal:{
     color: colors.white,
