@@ -29,25 +29,6 @@ export const styles = StyleSheet.create({
     color: colors.heading,
     lineHeight: 40
   },
-  input: {
-    borderBottomWidth: 1,
-    borderColor: colors.gray,
-    color: colors.heading,
-    width: '100%',
-    fontSize: 18,
-    marginTop: 20,
-    padding: 10,
-    textAlign: 'center',
-  },
-  footer: {
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: 'space-around',
-    width: '100%',
-    marginTop: 40,
-    marginBottom:10,
-    paddingHorizontal: 20
-  },
   buttonIcon: {
     fontSize:24,
     color: colors.heading,
