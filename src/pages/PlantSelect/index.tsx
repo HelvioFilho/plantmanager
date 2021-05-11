@@ -84,8 +84,8 @@ export function PlantSelect() {
     fetchPlants();
   }
 
-  function handlePlantSelect(plants: PlantsProps){
-    navigation.navigate('PlantSave');
+  function handlePlantSelect(plant: PlantsProps){
+    navigation.navigate('PlantSave', {plant});
   }
 
   useEffect(() => {
