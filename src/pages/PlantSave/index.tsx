@@ -6,6 +6,7 @@ import {
   Platform,
   TouchableOpacity,
   View,
+  Alert,
 } from 'react-native';
 
 import { SvgFromUri } from 'react-native-svg';
@@ -13,7 +14,7 @@ import { useRoute } from '@react-navigation/core';
 import DateTimePicker, { Event } from '@react-native-community/datetimepicker';
 import { format } from 'date-fns';
 
-import { PlantProps } from '../../assets/libs/storage';
+import { loadPlant, PlantProps, savePlant } from '../../assets/libs/storage';
 import waterdrop from '../../assets/waterdrop.png';
 import { Button } from '../../components/Button';
 import { styles } from './styles';
@@ -36,8 +37,20 @@ export function PlantSave() {
     if (dateTime)
       setSelectedDateTime(dateTime);
   }
+
   function handleOpenDatetimePickerForAndroid() {
     setShowDatePicker(oldState => !oldState);
+  }
+
+  async function handleSave(){
+    try{
+      await savePlant({
+        ...plant,
+        dateTimeNotification: selectedDateTime
+      })
+    }catch{
+      Alert.alert('Não foi possível salvar a planta. 😢')
+    }
   }
   return (
     <View style={styles.container}>
@@ -94,7 +107,7 @@ export function PlantSave() {
         </View>
         <Button
           title="Cadastrar planta"
-          onPress={() => { }}
+          onPress={handleSave}
         />
       </View>
     </View>
