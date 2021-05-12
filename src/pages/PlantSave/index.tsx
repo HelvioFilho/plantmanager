@@ -18,6 +18,7 @@ import { loadPlant, PlantProps, savePlant } from '../../assets/libs/storage';
 import waterdrop from '../../assets/waterdrop.png';
 import { Button } from '../../components/Button';
 import { styles } from './styles';
+import { useNavigation } from '@react-navigation/native';
 
 interface Params {
   plant: PlantProps
@@ -29,6 +30,8 @@ export function PlantSave() {
 
   const route = useRoute();
   const { plant } = route.params as Params;
+
+  const navigation = useNavigation();
 
   function handleChangeTime(event: Event, dateTime: Date | undefined) {
     if (Platform.OS === 'android')
@@ -42,13 +45,22 @@ export function PlantSave() {
     setShowDatePicker(oldState => !oldState);
   }
 
-  async function handleSave(){
-    try{
+  async function handleSave() {
+    try {
       await savePlant({
         ...plant,
         dateTimeNotification: selectedDateTime
       })
-    }catch{
+
+      navigation.navigate('Confirmation', {
+        title: 'Tudo certo',
+        subtitle: 'Fique tranquilo que sempre vamos lembrar você de cuidar da sua plantinha com muito cuidado.',
+        buttonTitle: 'Muito Obrigado :D',
+        icon: 'hug',
+        nextScreen: 'MyPlant',
+      });
+      
+    } catch {
       Alert.alert('Não foi possível salvar a planta. 😢')
     }
   }
