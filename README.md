@@ -4,14 +4,14 @@
 
 <p align="center">
   <a href="#technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-layout">Getting started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-project">Project</a>
+  <a href="#getting-started">Getting started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#project">Project</a>
 </p>
 
 <br>
 
 <p align="center">
-  <img alt="appDemo" src=".github/demo.gif">
+  <img height="500" alt="appDemo" src=".github/demo.gif">
 </p>
 
 ---
